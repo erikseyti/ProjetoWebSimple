@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 public class Cidade {
 	
@@ -19,6 +21,7 @@ public class Cidade {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
+	@NotEmpty(message="O nome da cidade não pode ser vazio")
 	private String nome;
 	private String codIbge;
 	
@@ -43,8 +46,6 @@ public class Cidade {
 	public void setCodIbge(String codIbge) {
 		this.codIbge = codIbge;
 	}
-
-
 
 	public String getNome() {
 		return nome;
