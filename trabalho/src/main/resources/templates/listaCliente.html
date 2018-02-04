@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+</meta>
+<title>Lista de Clientes</title>
+</head>
+<body>
+
+<table border="1">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">Código</th>
+				<th scope="col">Nome</th>
+				<th scope="col">CPF</th>
+				<th scope="col">Cidade</th>
+				<th scope="col">Operações</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="entidade,ind : ${lista}">
+				<td th:text="${entidade.id}"></td>
+				<td th:text="${entidade.nome}"></td>
+				<td th:text="${entidade.cpf}"></td>
+				<td th:text="${entidade.cidade.nome}"></td>
+				<td><a
+					th:href="@{/cliente/excluir(index=${ind.index})}">Excluir</a>
+					<a th:href="@{/cliente/alterar(index=${ind.index})}">Alterar</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<a href="/cliente/novo" class="btn btn-dark">Cadastrar Cliente</a>
+
+</body>
+</html>

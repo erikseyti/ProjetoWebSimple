@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+	xmlns:th="http://www.thymeleaf.org" 
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+<meta charset="ISO-8859-1">
+</meta>
+<title>Cadastro de Cliente</title>
+</head>
+<body>
+
+			<form action="/cliente/salvar" method="post" th:object="${cliente}">
+			<span th:text="${mensagem}"></span>
+			<ul th:if="${#fields.hasErrors()}" >
+				<li th:each="err : ${#fields.errors()}" th:text="${err}"></li>
+			</ul>
+			<input type="hidden" class="form-control" id="id" name="id" th:field= "*{id}" />
+		    <input type="text" name="nome" placeholder="Nome" th:field= "*{nome}" />
+		    <input type="text" id="cpf" name="cpf" placeholder="cpf" th:field="*{cpf}"/>
+		    <input type="number" id="cidade" name="cidade" placeholder="cidade" th:field="*{cidade}"/>
+			<button type="submit" class="btn btn-primary">Salvar</button>
+			<a href="/cliente/lista" class="btn btn-dark">Lista</a>
+		</form>
+
+</body>
+</html>
