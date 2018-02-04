@@ -21,7 +21,7 @@
 				<td th:text="${entidade.id}"></td>
 				<td th:text="${entidade.nome}"></td>
 				<td th:text="${entidade.codIbge}"></td>
-				<td th:text="${entidade.estado}"></td>
+				<td th:text="${entidade.estado.nome}"></td>
 				<td><a
 					th:href="@{/cidade/excluir(index=${ind.index})}">Excluir</a>
 					<a th:href="@{/cidade/alterar(index=${ind.index})}">Alterar</a>
