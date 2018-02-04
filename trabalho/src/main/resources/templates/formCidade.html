@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html  lang="pt-br"
+	xmlns:th="http://www.thymeleaf.org" 
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" >
+<head>
+<meta charset="ISO-8859-1">
+</meta>
+<title>Cadastro de Cidade</title>
+</head>
+<body>
+
+		<form action="/cidade/salvar" method="post" th:object="${cidade}">
+			<span th:text="${mensagem}"></span>
+			<ul th:if="${#fields.hasErrors()}" >
+				<li th:each="err : ${#fields.errors()}" th:text="${err}"></li>
+			</ul>
+			<input type="hidden" class="form-control" id="id" name="id" th:field= "*{id}" />
+		    <input type="text" name="nome" placeholder="Nome" th:field= "*{nome}" />
+		    <input type="text" id="codIbge" name="codIbge" placeholder="codIbge" th:field="*{codIbge}"/>
+			<button type="submit" class="btn btn-primary">Salvar</button>
+			<a href="/cidade/lista" class="btn btn-dark">Lista</a>
+		</form>
+		
+</body>
+</html>

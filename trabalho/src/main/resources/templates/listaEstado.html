@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<body>
+	<table border="1">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">Código</th>
+				<th scope="col">Nome</th>
+				<th scope="col">Sigla</th>
+				<th scope="col">Operações</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="entidade,ind : ${lista}">
+				<td th:text="${entidade.id}"></td>
+				<td th:text="${entidade.nome}"></td>
+				<td th:text="${entidade.sigla}"></td>
+				<td><a
+					th:href="@{/estado/excluir(index=${ind.index})}">Excluir</a>
+					<a th:href="@{/estado/alterar(index=${ind.index})}">Alterar</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<a href="/estado/novo" class="btn btn-dark">Cadastrar Estado</a>
+</body>
+</html>

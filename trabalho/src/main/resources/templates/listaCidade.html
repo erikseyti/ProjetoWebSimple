@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+</meta>
+<title>Lista de Cidades</title>
+</head>
+<body>
+	<table border="1">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">Código</th>
+				<th scope="col">Nome</th>
+				<th scope="col">CodIbge</th>
+				<th scope="col">Operações</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="entidade,ind : ${lista}">
+				<td th:text="${entidade.id}"></td>
+				<td th:text="${entidade.nome}"></td>
+				<td th:text="${entidade.codIbge}"></td>
+				<td><a
+					th:href="@{/cidade/excluir(index=${ind.index})}">Excluir</a>
+					<a th:href="@{/cidade/alterar(index=${ind.index})}">Alterar</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<a href="/cidade/novo" class="btn btn-dark">Cadastrar Cidade</a>
+
+</body>
+</html>

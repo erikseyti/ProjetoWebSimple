@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+	xmlns:th="http://www.thymeleaf.org" 
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"  >
+<body>
+		<form action="/estado/salvar" method="post" th:object="${estado}">
+			<span th:text="${mensagem}"></span>
+			<ul th:if="${#fields.hasErrors()}" >
+				<li th:each="err : ${#fields.errors()}" th:text="${err}"></li>
+			</ul>
+			<input type="hidden" class="form-control" id="id" name="id" th:field= "*{id}" />
+		    <input type="text" name="nome" placeholder="Nome" th:field= "*{nome}" />
+		    <input type="text" maxlength="2" id="sigla" name="sigla" placeholder="Sigla" th:field="*{sigla}"/>
+			<button type="submit" class="btn btn-primary">Salvar</button>
+			<a href="/estado/lista" class="btn btn-dark">Lista</a>
+		</form>
+</body>
+</html>
